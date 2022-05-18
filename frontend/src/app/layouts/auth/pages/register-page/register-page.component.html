@@ -1,0 +1,42 @@
+<div class="card-wrapper">
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h2>مهرباني ڪري رجسٽر ٿيو</h2>
+        <div class="mat-item">
+          <mat-form-field>
+            <input matInput name="username" placeholder="يوزر نالو" formControlName="username" required>
+            <mat-error *ngIf="isUsernameNotValid()">
+              استعمال ڪندڙ جو نالو گهٽ ۾ گهٽ 4 اکرن جو هجڻ گهرجي
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="電話" formControlName="phone" required>
+            <mat-error *ngIf="isPhoneNotValid()">
+              電話は11文字以上である必要があります
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="電子郵件" formControlName="email" required>
+            <mat-error *ngIf="isEmailNotValid()">
+              電子郵件至少應包含 8 個字符
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" placeholder="ޕާސްވަރޑް" formControlName="password" required>
+            <mat-error *ngIf="isPasswordNotValid()">
+              ޕާސްވޯޑްގައި މަދުވެގެން 6 އަކުރު ހުންނަންވާނެއެވެ
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" placeholder="ޕާސްވޯޑް ކޮންފަރމް ކުރާށެވެ" formControlName="confirmedPassword" required>
+            <mat-error *ngIf="isConfirmedPasswordNotValid()">
+              ޕާސްވޯޑްގައި މަދުވެގެން 6 އަކުރު ހުންނަންވާނެއެވެ
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button type="submit" color="primary">تىزىملىتىڭ</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
